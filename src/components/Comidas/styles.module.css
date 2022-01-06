@@ -1,0 +1,23 @@
+.formulario{
+    height: 94vh;
+    background-color: black;
+    color: white;
+}
+
+.title{
+    color: blueviolet;
+}
+
+label{
+    display: block;
+}
+.inputText{
+    height: 25px;
+    border-radius: 7px;
+}
+
+@media (max-width: 300px) {
+    .inputText{
+        width: 80%;
+    }
+}
