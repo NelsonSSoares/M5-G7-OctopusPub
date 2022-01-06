@@ -9,7 +9,22 @@ class Header extends React.Component {
       <header className={styles.navMenu}>
         <nav className={styles.myNav}>
           <Link className={styles.logo} to="/">
-            Teste Header
+            Home
+          </Link>
+          <Link to="/pedidos">
+            Pedidos
+          </Link>
+          <Link to="/comidas">
+            Comidas
+          </Link>
+          <Link to="/bebidas">
+            Bebidas
+          </Link>
+          <Link to="/cadastro">
+            Cadastro de Funcionários (provisório)
+          </Link>
+          <Link to="/login">
+            Login
           </Link>
         </nav>
       </header>
