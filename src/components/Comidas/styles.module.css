@@ -1,0 +1,70 @@
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+.formulario{
+    height: 94vh;
+    background-color: black;
+    color: white;
+}
+
+.title{
+    color: blueviolet;
+}
+
+label{
+    display: block;
+}
+.inputText{
+    width: 25%;
+    height: 25px;
+    border-radius: 7px;
+    border: 5px solid blueviolet;
+    color: white;
+
+}
+input{
+    background: none;
+}
+.inputText:focus{
+    border: 5px solid white;
+}
+
+.inputGroup{
+    margin: 10px;
+    
+}
+.btnConsulta{
+    margin-top: 10PX;
+    border: 3px solid blueviolet;
+    color: blueviolet;
+    background: none;
+    width: 100px;
+    height: 30px;
+    border-radius: 7px;
+    cursor: pointer;
+   
+}
+.btnConsulta:hover{
+    transition: 1s;
+    transform: scale(1.2);
+    border: 3px solid white ;
+    color: white;
+}
+.btnConsulta:focus{
+    transition: 1s;
+    transform: scale(1.2);
+    border: 3px solid white ;
+    color: white;
+    
+}
+/* @media (max-width: 400px) {
+    .inputText{
+        width: 80%;
+    }
+} */
+/* label{
+    text-align: start;
+} */
