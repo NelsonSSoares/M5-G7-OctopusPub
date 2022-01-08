@@ -1,3 +1,39 @@
+.container{
+    justify-content: center;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto;
+    grid-template-areas: "divCod divCod divBtnConsulta divBtnConsulta "
+    " . divNome divDescricao divPreco "
+    ". divBtnCadastrar divBtnAtualizar divBtnDeletar";
+
+}
+/* cod,nome,descricao,preco,img */
+.divCod{
+    grid-area: divCod;
+}
+.divNome{
+    grid-area: divNome;
+}
+.divBtnConsulta{
+    grid-area: divBtnConsulta;
+}
+.divDescricao{
+    grid-area: divDescricao;
+}
+.divPreco{
+    grid-area: divPreco;
+}
+.divBtnCadastrar{
+    grid-area: divBtnCadastrar;
+}
+.divBtnAtualizar{
+   grid-area: divBtnAtualizar; 
+}
+.divBtnDeletar{
+    grid-area: divBtnDeletar;
+}
+
 input:focus,
 select:focus,
 textarea:focus,
@@ -11,17 +47,18 @@ button:focus {
 }
 
 .title{
-    color: blueviolet;
+    color: green;
 }
 
 label{
     display: block;
+    text-align: start;
 }
 .inputText{
-    width: 25%;
+    
     height: 25px;
     border-radius: 7px;
-    border: 5px solid blueviolet;
+    border: 5px solid green;
     color: white;
 
 }
@@ -37,9 +74,9 @@ input{
     
 }
 .btnConsulta{
-    margin-top: 10PX;
-    border: 3px solid blueviolet;
-    color: blueviolet;
+    margin-top: 25px;
+    border: 3px solid lightblue;
+    color: lightblue;
     background: none;
     width: 100px;
     height: 30px;
@@ -60,11 +97,94 @@ input{
     color: white;
     
 }
-/* @media (max-width: 400px) {
-    .inputText{
-        width: 80%;
+
+.btnCadastrar{
+    margin-top: 10px;
+    border: 3px solid green;
+    color: green;
+    background: none;
+    width: 100px;
+    height: 30px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.btnCadastrar:hover{
+    transition: 1s;
+    transform: scale(1.2);
+    border: 3px solid white ;
+    color: white;
+}
+.btnCadastrar:focus{
+    transition: 1s;
+    transform: scale(1.2);
+    border: 3px solid white ;
+    color: white;
+    
+}
+
+.btnAtualizar{
+    margin-top: 10px;
+    border: 3px solid yellow;
+    color: yellow;
+    background: none;
+    width: 100px;
+    height: 30px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.btnAtualizar:hover{
+    transition: 1s;
+    transform: scale(1.2);
+    border: 3px solid white ;
+    color: white;
+}
+.btnAtualizar:focus{
+    transition: 1s;
+    transform: scale(1.2);
+    border: 3px solid white ;
+    color: white;
+    
+}
+
+.btnDeletar{
+    margin-top: 10px;
+    border: 3px solid red;
+    color: red;
+    background: none;
+    width: 100px;
+    height: 30px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.btnDeletar:hover{
+    transition: 1s;
+    transform: scale(1.2);
+    border: 3px solid white ;
+    color: white;
+}
+.btnDeletar:focus{
+    transition: 1s;
+    transform: scale(1.2);
+    border: 3px solid white ;
+    color: white;
+    
+}
+
+ @media (max-width: 400px) {
+    .container{
+        justify-content: center;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-template-rows: auto;
+        grid-template-areas: "divCod divCod divCod divCod"
+        "divBtnConsultar divBtnConsultar divBtnConsultar divBtnConsultar"
+        "divNome divNome divNome divNome"
+        "divDescricao divDescricao divDescricao divDescricao"
+        "divPreco divPreco divPreco divPreco"
+        "divBtnCadastrar divBtnCadastrar divBtnCadastrar divBtnCadastrar"
+        "divBtnAtualizar divBtnAtualizar divBtnAtualizar divBtnAtualizar "
+        "divBtnDeletar divBtnDeletar divBtnDeletar divBtnDeletar ";
+
     }
-} */
-/* label{
-    text-align: start;
-} */
+ }
