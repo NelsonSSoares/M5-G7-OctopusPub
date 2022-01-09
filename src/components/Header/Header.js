@@ -9,22 +9,22 @@ class Header extends React.Component {
       <header className={styles.navMenu}>
         <nav className={styles.myNav}>
           <Link className={styles.logo} to="/">
-            Home
+            home
           </Link>
           <Link to="/pedidos">
-            Pedidos
+            pedidos
           </Link>
           <Link to="/comidas">
-            Comidas
+            comidas
           </Link>
           <Link to="/bebidas">
-            Bebidas
+            bebidas
           </Link>
-          <Link to="/cadastro">
-            Cadastro de Funcionários (provisório)
-          </Link>
+          {/* <Link to="/cadastro">
+            cadastro de Funcionários (provisório)
+          </Link> */}
           <Link to="/login">
-            Login
+            login
           </Link>
         </nav>
       </header>
