@@ -7,6 +7,8 @@ import Modal from '../Modal/Modal'
 
 import styles from "./styles.module.css";
 
+import logo from "../../assets/logo.png"
+
 function Pedidos() {
   const [loading, setLoading] = useState(true);
   const [pedidos, setPedidos] = useState([]);
@@ -83,28 +85,37 @@ function Pedidos() {
   return (
     <>
       <Header />
-      <table className={styles.table}>
-        <thead>
-          <tr className={styles.tr}>
-            <th className={styles.th}>Número</th>
-            <th className={styles.th}>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          {pedidos.map(p =>
-          (
-            <>
-              <tr key={p.id} className={styles.tr}>
-                <td> <a href="#" key={p.id} onClick={abrirPedido}>{p.numero}</a></td>
-                <td>{p.total_pedido}</td>
-              </tr>
-            </>
-          )
-          )
-          }
-        </tbody>
-      </table>
-      <input type="button" value="Novo Pedido" onClick={novoPedido}/>
+      <div className={styles.container}>
+          <div>
+            <img src={logo}/>
+          </div>
+          <div className={styles.card}>
+            <table className={styles.table}>
+              <thead>
+                <tr className={styles.tr}>
+                  <th className={styles.th}>Número</th>
+                  <th className={styles.th}>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                {pedidos.map(p =>
+                (
+                  <>
+                    <tr key={p.id} className={styles.tr}>
+                      <td> <a href="#" key={p.id} onClick={abrirPedido}>{p.numero}</a></td>
+                      <td>R$ {p.total_pedido}</td>
+                    </tr>
+                  </>
+                )
+                )
+                }
+              </tbody>
+            </table>
+            <input className={styles.button} type="button" value="Novo Pedido" onClick={novoPedido}/>
+        </div>
+      </div>
+
 
       <Modal
         modal={modal}
