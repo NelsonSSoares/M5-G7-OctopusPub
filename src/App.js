@@ -19,9 +19,9 @@ function App() {
           <Route path="/bebidas" element={<Bebidas />} />
           <Route path="/comidas" element={<Comidas />} />
           <Route path="/cadastro" element={<FuncionariosCadastro />} />
-          <Route path="/login" element={<Login />} />
+          <Route exact path="/login" element={<Login />}  />
           <Route path="*" element={<>Página não encontrada</>} />
-        </Routes>
+      </Routes>
       </main>
     </div>
   );
