@@ -55,7 +55,6 @@ function Bebidas() {
   
   useEffect(() => {
     carregarBebidas();
-    novaBebida();
   }, []);
 
   return(
@@ -112,19 +111,19 @@ function Bebidas() {
         <div key={'body'}>
           <form>
             <label>Tipo da bebida:</label>
-            <input type="text" name="tipo" value={bebida.tipo} onChange={(event) => {
+            <input type="text" name="tipo" defaultValue={bebida.tipo} onChange={(event) => {
                 setInput({tipo: event.target.value})
               }}/>
             <label>Nome da bebida:</label>
-            <input type="text" name="nome" value={bebida.nome} onChange={(event) => {
+            <input type="text" name="nome" defaultValue={bebida.nome} onChange={(event) => {
                 setInput({nome: event.target.value})
               }}/>
             <label>Marca da bebida:</label>
-            <input type="text" name="marca" value={bebida.marca} onChange={(event) => {
+            <input type="text" name="marca" defaultValue={bebida.marca} onChange={(event) => {
                 setInput({marca: event.target.value})
               }}/>
             <label>Preço da Bebida:</label>
-            <input type="text" name="preco" value={bebida.preco} onChange={(event) => {
+            <input type="text" name="preco" defaultValue={bebida.preco} onChange={(event) => {
                 setInput({preco: event.target.value})
               }}/>
           </form>
