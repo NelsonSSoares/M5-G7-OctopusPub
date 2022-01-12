@@ -19,19 +19,19 @@ function Bebidas() {
   }
 
   async function salvarBebida() {
-    await axios.post('http://localhost:3001/bebidas', bebida);
+    await axios.post('https://octopus-pub.herokuapp.com/bebidas', bebida);
     carregarBebidas();
     setModal(false);
   }
 
   async function editarBebida() {
-    await axios.put(`http://localhost:3001/bebidas/${bebida.id}`, bebida);
+    await axios.put(`https://octopus-pub.herokuapp.com/bebidas/${bebida.id}`, bebida);
     await carregarBebidas();
     setModal(false);
   }
 
   async function deletarBebida(id) {
-    await axios.delete(`http://localhost:3001/bebidas/${id}`);
+    await axios.delete(`https://octopus-pub.herokuapp.com/bebidas/${id}`);
     carregarBebidas();
     setModal(false);
   }
@@ -48,11 +48,11 @@ function Bebidas() {
 
   async function carregarBebidas() {
     setLoading(true);
-    const response = await axios.get('http://localhost:3001/bebidas');
+    const response = await axios.get('https://octopus-pub.herokuapp.com/bebidas');
     setBebidas(response.data);
     setLoading(false);
   }
-  
+
   useEffect(() => {
     carregarBebidas();
   }, []);
@@ -82,7 +82,7 @@ function Bebidas() {
           </tr>
         </thead>
         <tbody>
-        
+
           {bebidas.map(b =>
             (
               <tr key={b.id}>
