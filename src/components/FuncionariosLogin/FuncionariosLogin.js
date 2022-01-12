@@ -8,6 +8,9 @@ import iconeFuncionario from "../../assets/iconeFuncionario.png"
 
 
 function FuncionariosLogin() {
+  function click() {
+    return onclick() 
+  }
 
   return (
     <div>
@@ -21,7 +24,7 @@ function FuncionariosLogin() {
             <form className={styles.form} >
             <input type="email" name="e-mail" placeholder='e-mail' className={styles.input} />
             <input type="password" name="senha" placeholder='senha' className={styles.input} />
-            <input className={styles.button} type="button" value="login"/>
+            <input className={styles.button} type="button" value="login" onclick={click}/>
             </form>
 
               </div>
