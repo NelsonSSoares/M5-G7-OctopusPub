@@ -28,7 +28,7 @@
     grid-area: divBtnCadastrar;
 }
 .divBtnAtualizar{
-   grid-area: divBtnAtualizar; 
+   grid-area: divBtnAtualizar;
 }
 .divBtnDeletar{
     grid-area: divBtnDeletar;
@@ -37,17 +37,11 @@
 input:focus,
 select:focus,
 textarea:focus,
-button:focus {
-    outline: none;
-}
+
 .formulario{
     height: 94vh;
     background-color: black;
     color: white;
-}
-
-.title{
-    color: green;
 }
 
 label{
@@ -55,121 +49,89 @@ label{
     text-align: start;
 }
 .inputText{
-    
+
     height: 25px;
-    border-radius: 7px;
-    border: 5px solid green;
+    border-radius: 5px;
     color: white;
 
 }
-input{
-    background: none;
-}
+
 .inputText:focus{
     border: 5px solid white;
 }
 
 .inputGroup{
     margin: 10px;
-    
-}
-.btnConsulta{
-    margin-top: 25px;
-    border: 3px solid lightblue;
-    color: lightblue;
-    background: none;
-    width: 100px;
-    height: 30px;
-    border-radius: 7px;
-    cursor: pointer;
-   
-}
-.btnConsulta:hover{
-    transition: 1s;
-    transform: scale(1.2);
-    border: 3px solid white ;
-    color: white;
-}
-.btnConsulta:focus{
-    transition: 1s;
-    transform: scale(1.2);
-    border: 3px solid white ;
-    color: white;
-    
+
 }
 
-.btnCadastrar{
-    margin-top: 10px;
-    border: 3px solid green;
-    color: green;
-    background: none;
-    width: 100px;
-    height: 30px;
-    border-radius: 7px;
+.btnConsulta{
+    font-family: 'Source Serif Pro';
+    font-weight: bold;
+    color: #fff;
+    background: #000;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: none!important;
+}
+.btnConsulta:hover{
     cursor: pointer;
+    transform: scale(1.01);
+}
+
+
+.btnCadastrar{
+    font-family: 'Source Serif Pro';
+    font-weight: bold;
+    color: #fff;
+    background: #000;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: none!important;
 }
 
 .btnCadastrar:hover{
-    transition: 1s;
-    transform: scale(1.2);
-    border: 3px solid white ;
-    color: white;
+    cursor: pointer;
+    transform: scale(1.01);
 }
-.btnCadastrar:focus{
-    transition: 1s;
-    transform: scale(1.2);
-    border: 3px solid white ;
-    color: white;
-    
-}
+
 
 .btnAtualizar{
-    margin-top: 10px;
-    border: 3px solid yellow;
-    color: yellow;
-    background: none;
-    width: 100px;
-    height: 30px;
-    border-radius: 7px;
-    cursor: pointer;
-}
-.btnAtualizar:hover{
-    transition: 1s;
-    transform: scale(1.2);
-    border: 3px solid white ;
-    color: white;
-}
-.btnAtualizar:focus{
-    transition: 1s;
-    transform: scale(1.2);
-    border: 3px solid white ;
-    color: white;
-    
+    font-family: 'Source Serif Pro';
+    font-weight: bold;
+    color: #fff;
+    background: #000;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: none!important;
 }
 
-.btnDeletar{
-    margin-top: 10px;
-    border: 3px solid red;
-    color: red;
-    background: none;
-    width: 100px;
-    height: 30px;
-    border-radius: 7px;
+.btnAtualizar:hover{
     cursor: pointer;
+    transform: scale(1.01);
 }
+
+
+.btnDeletar{
+    font-family: 'Source Serif Pro';
+    font-weight: bold;
+    color: #fff;
+    background: #000;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: none!important;
+}
+
 .btnDeletar:hover{
-    transition: 1s;
-    transform: scale(1.2);
-    border: 3px solid white ;
-    color: white;
+    cursor: pointer;
+    transform: scale(1.01);
 }
-.btnDeletar:focus{
-    transition: 1s;
-    transform: scale(1.2);
-    border: 3px solid white ;
-    color: white;
-    
-}
+
 
  @media (max-width: 400px) {
     .container{

@@ -49,6 +49,25 @@ td {
     align-items: center;
 }
 
+.numero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start
+}
+
+.bebidasCardapio {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start
+}
+
+input {
+    border: none;
+    background: #f1f1f1;
+    border-radius: 5px;
+    padding: 5px;
+}
+
 .inputQuantidade {
     width: 30px;
     height: 30px;

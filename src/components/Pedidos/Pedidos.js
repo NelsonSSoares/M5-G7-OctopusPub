@@ -45,7 +45,7 @@ function Pedidos() {
   }
 
   async function novoPedido() {
-    setPedido({...pedido, pedido:{ numero: '', comidas: [], bebidas: [] }})
+    setPedido({ ...pedido, pedido: { numero: '', comidas: [], bebidas: [] } })
     await carregarComidas()
     await carregarBebidas()
 
@@ -86,33 +86,33 @@ function Pedidos() {
     <>
       <Header />
       <div className={styles.container}>
-          <div>
-            <img src={logo}/>
-          </div>
-          <div className={styles.card}>
-            <table className={styles.table}>
-              <thead>
-                <tr className={styles.tr}>
-                  <th className={styles.th}>Número</th>
-                  <th className={styles.th}>Total</th>
-                </tr>
-              </thead>
-              <tbody>
+        <div>
+          <img src={logo} />
+        </div>
+        <div className={styles.card}>
+          <table className={styles.table}>
+            <thead>
+              <tr className={styles.tr}>
+                <th className={styles.th}>Número</th>
+                <th className={styles.th}>Total</th>
+              </tr>
+            </thead>
+            <tbody>
 
-                {pedidos.map(p =>
-                (
-                  <>
-                    <tr key={p.id} className={styles.tr}>
-                      <td> <a href="#" key={p.id} onClick={abrirPedido}>{p.numero}</a></td>
-                      <td>R$ {p.total_pedido}</td>
-                    </tr>
-                  </>
-                )
-                )
-                }
-              </tbody>
-            </table>
-            <input className={styles.button} type="button" value="Novo Pedido" onClick={novoPedido}/>
+              {pedidos.map(p =>
+              (
+                <>
+                  <tr key={p.id} className={styles.tr}>
+                    <td> <a href="#" key={p.id} onClick={abrirPedido}>{p.numero}</a></td>
+                    <td>R$ {p.total_pedido}</td>
+                  </tr>
+                </>
+              )
+              )
+              }
+            </tbody>
+          </table>
+          <input className={styles.button} type="button" value="Novo Pedido" onClick={novoPedido} />
         </div>
       </div>
 
@@ -124,18 +124,21 @@ function Pedidos() {
       >
         <div key={'header'}><span>Pedido</span></div>
         <div key={'body'}>
-          <label>Número da comanda:</label>
-          <input
-            type="text"
-            onChange={(event) => {
-              setPedido({...pedido, numero: event.target.value})
-            }}
-          />
-          <label>Comidas:</label>
-          { comidas.map(comida =>
-             (
+          <div classname={styles.numero}>
+            <label>Número da comanda:</label>
+            <input
+              type="text"
+              onChange={(event) => {
+                setPedido({ ...pedido, numero: event.target.value })
+              }}
+            />
+          </div>
+          <div classname={styles.comidasCardapio}>
+            <label>Comidas:</label>
+            {comidas.map(comida =>
+            (
               <div key={comida.id} className={styles.modalNovoPedido}>
-                <img src={comida.imagem} alt=""/>
+                <img src={comida.imagem} alt="" />
                 <p>{comida.nome}</p>
                 <p>{comida.descricao}</p>
                 <p>{comida.preco}</p>
@@ -149,13 +152,15 @@ function Pedidos() {
                 />
               </div>
             )
-          )}
+            )}
+          </div>
 
-          <label>Bebidas:</label>
-          { bebidas.map(bebida =>
+          <div classname={styles.bebidasCardapio}>
+            <label>Bebidas:</label>
+            {bebidas.map(bebida =>
             (
               <div key={bebida.id} className={styles.modalNovoPedido}>
-                <img src={bebida.imagem} alt=""/>
+                <img src={bebida.imagem} alt="" />
                 <p>{bebida.tipo}</p>
                 <p>{bebida.nome}</p>
                 <p>{bebida.preco}</p>
@@ -169,7 +174,8 @@ function Pedidos() {
                 />
               </div>
             )
-          )}
+            )}
+          </div>
         </div>
       </Modal>
       <Footer />
