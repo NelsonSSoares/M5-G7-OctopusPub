@@ -1,12 +1,22 @@
 .container{
-    justify-content: center;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: auto;
-    grid-template-areas: "divCod divCod divBtnConsulta divBtnConsulta "
-    " . divNome divDescricao divPreco "
-    ". divBtnCadastrar divBtnAtualizar divBtnDeletar";
+    background: #000;
+    display:flex;
+    justify-content: space-around;
+    padding-bottom: 3%
+}
 
+.card {
+    background: #42ada1;
+    border-radius: 15px;
+    width: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.imgComida {
+    width: 30%;
 }
 /* cod,nome,descricao,preco,img */
 .divCod{
@@ -34,10 +44,6 @@
     grid-area: divBtnDeletar;
 }
 
-input:focus,
-select:focus,
-textarea:focus,
-
 .formulario{
     height: 94vh;
     background-color: black;
@@ -48,37 +54,29 @@ label{
     display: block;
     text-align: start;
 }
-.inputText{
 
-    height: 25px;
-    border-radius: 5px;
-    color: white;
-
-}
-
-.inputText:focus{
-    border: 5px solid white;
-}
-
-.inputGroup{
-    margin: 10px;
-
+.buttons {
+    display:flex;
+    margin-top: 15px;
 }
 
 .btnConsulta{
     font-family: 'Source Serif Pro';
     font-weight: bold;
     color: #fff;
-    background: #000;
+    background: #758b86;;
     border: none;
     padding: 10px;
     border-radius: 5px;
     outline: none;
     box-shadow: none!important;
+    margin: 0px 15px;
 }
+
 .btnConsulta:hover{
     cursor: pointer;
     transform: scale(1.01);
+    background: #758b86!important;
 }
 
 
@@ -96,6 +94,7 @@ label{
 .btnCadastrar:hover{
     cursor: pointer;
     transform: scale(1.01);
+    background: #000!important;
 }
 
 
@@ -103,16 +102,18 @@ label{
     font-family: 'Source Serif Pro';
     font-weight: bold;
     color: #fff;
-    background: #000;
+    background: #ca9c39;
     border: none;
     padding: 10px;
     border-radius: 5px;
     box-shadow: none!important;
+    margin: 0px 15px;
 }
 
 .btnAtualizar:hover{
     cursor: pointer;
     transform: scale(1.01);
+    background: #ca9c39!important;
 }
 
 
@@ -120,7 +121,7 @@ label{
     font-family: 'Source Serif Pro';
     font-weight: bold;
     color: #fff;
-    background: #000;
+    background: #9B0909;
     border: none;
     padding: 10px;
     border-radius: 5px;
@@ -130,6 +131,7 @@ label{
 .btnDeletar:hover{
     cursor: pointer;
     transform: scale(1.01);
+    background: #9B0909!important;
 }
 
 
