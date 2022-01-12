@@ -3,8 +3,6 @@ import React, { useEffect, useState } from 'react';
 import styles from "./styles.module.css";
 
 function Modal(props) {
-  const [loading, setLoading] = useState(true);
-  const [pedidos, setPedidos] = useState([]);
   const [modal, setModal] = useState(false);
   const [header, setHeader] = useState(null);
   const [body, setBody] = useState(null);
