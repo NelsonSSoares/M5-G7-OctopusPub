@@ -60,18 +60,24 @@ function Bebidas() {
   return(
     <>
       <Header />
-      <div className={styles.tabela}>
-      <h1>Bebidas</h1>
+      <div className={styles.container}>
+      <div>
+          <img src={logo} />
+      </div>
+      <div className={styles.card}>
+        <div>
+          <img className={(styles.imgBebida)} src={'https://i.pinimg.com/originals/ba/7d/b8/ba7db81145941ffb9e53443964d3c347.png'} />
+        </div>
       <input className={styles.button} type="button" value="Cadastrar Bebida" onClick={novaBebida}/>
-      <table>
+      <table className={styles.table}>
         <caption>Lista de Bebidas</caption>
         <thead>
           <tr>
-            <th>Id</th>
+            <th>Código</th>
             <th>Tipo</th>
             <th>Nome</th>
-            <th>Preço</th>
             <th>Marca</th>
+            <th>Preço</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -86,20 +92,21 @@ function Bebidas() {
                 <td>{b.marca}</td>
                 <td>{b.preco}</td>
                 <td>
-                  <a href="#" key={b.id} className={styles.button} onClick={() => alterarBebida({
+                  <a href="#" key={b.id}  className={styles.btnAtualizar} onClick={() => alterarBebida({
                     id: b.id,
                     tipo: b.tipo,
                     nome: b.nome,
                     marca: b.marca,
                     preco: b.preco
-                  })}>Editar</a>
-                   <a href="#" className={styles.button} onClick={() => deletarBebida(b.id)}>Deletar</a>
+                  })}>Atualizar</a>
+                   <a href="#" className={styles.btnDeletar} onClick={() => deletarBebida(b.id)}>Deletar</a>
                   </td>
               </tr>
             )
           )}
         </tbody>
       </table>
+      </div>
       </div>
 
       <Modal
