@@ -23,4 +23,14 @@
     color: #42ada1
 }
 
+@media(max-width: 767px) {
+    .myNav { 
+        max-width: 300px;
+        font-size: 2px;
+        line-height: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        
+  }
+}
 
