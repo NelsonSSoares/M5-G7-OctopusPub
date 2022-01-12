@@ -10,7 +10,6 @@ import styles from "./styles.module.css";
 import logo from "../../assets/logo.png"
 
 function Pedidos() {
-  const [loading, setLoading] = useState(true);
   const [pedidos, setPedidos] = useState([]);
   const [modal, setModal] = useState(false);
   const [comidas, setComidas] = useState([])
@@ -18,42 +17,44 @@ function Pedidos() {
   const [pedido, setPedido] = useState({ numero: '', comidas: [], bebidas: [] })
 
   async function salvarPedido() {
-    console.log(pedido)
-    const response = await axios.post('http://localhost:3001/comandas', pedido);
+    await axios.post('https://octopus-pub.herokuapp.com/comandas', pedido);
 
-    console.log(response)
     carregarComandas();
     setModal(false)
   }
 
   async function carregarComandas() {
-    setLoading(true);
-    const response = await axios.get('http://localhost:3001/comandas/');
+    const response = await axios.get('https://octopus-pub.herokuapp.com/comandas/');
 
     setPedidos(response.data);
-    setLoading(false);
   }
 
   async function carregarComidas() {
-    const response = await axios.get('http://localhost:3001/comidas/');
+    const response = await axios.get('https://octopus-pub.herokuapp.com/comidas/');
     setComidas(response.data)
   }
 
   async function carregarBebidas() {
-    const response = await axios.get('http://localhost:3001/bebidas/');
+    const response = await axios.get('https://octopus-pub.herokuapp.com/bebidas/');
     setBebidas(response.data)
   }
 
+  async function excluirPedido(id) {
+    const response = await axios.delete(`https://octopus-pub.herokuapp.com/comandas/${id}`);
+    console.log(response)
+    carregarComandas()
+  }
+
   async function novoPedido() {
-    setPedido({ ...pedido, pedido: { numero: '', comidas: [], bebidas: [] } })
+    const inputs = document.querySelectorAll('input')
+    inputs.forEach(input => input.value = '')
+
+    setPedido({ numero: '', comidas: [], bebidas: [] })
+
     await carregarComidas()
     await carregarBebidas()
 
     setModal(true)
-  }
-
-  async function abrirPedido() {
-    console.log('abriu')
   }
 
   function adicionarBebida(qtd, bebida) {
@@ -95,6 +96,7 @@ function Pedidos() {
               <tr className={styles.tr}>
                 <th className={styles.th}>Número</th>
                 <th className={styles.th}>Total</th>
+                <th className={styles.th}>Opção</th>
               </tr>
             </thead>
             <tbody>
@@ -103,8 +105,9 @@ function Pedidos() {
               (
                 <>
                   <tr key={p.id} className={styles.tr}>
-                    <td> <a href="#" key={p.id} onClick={abrirPedido}>{p.numero}</a></td>
+                    <td>{p.numero}</td>
                     <td>R$ {p.total_pedido}</td>
+                    <td> <a href="#" onClick={() => excluirPedido(p.id)}>Excluir</a></td>
                   </tr>
                 </>
               )
@@ -122,10 +125,10 @@ function Pedidos() {
         closeModal={() => setModal(false)}
         save={salvarPedido}
       >
-        <div key={'header'}><span>Pedido</span></div>
+        <div key={'header'}><span className={styles.title}>Novo Pedido</span></div>
         <div key={'body'}>
-          <div classname={styles.numero}>
-            <label>Número da comanda:</label>
+          <div className={styles.numero}>
+            <label className={styles.labelItems}>Número:</label>
             <input
               type="text"
               onChange={(event) => {
@@ -133,15 +136,16 @@ function Pedidos() {
               }}
             />
           </div>
-          <div classname={styles.comidasCardapio}>
-            <label>Comidas:</label>
+          <div className={styles.comidasCardapio}>
+            <label className={styles.labelItems}>Comidas:</label>
             {comidas.map(comida =>
             (
               <div key={comida.id} className={styles.modalNovoPedido}>
-                <img src={comida.imagem} alt="" />
-                <p>{comida.nome}</p>
-                <p>{comida.descricao}</p>
-                <p>{comida.preco}</p>
+                <div className={styles.fields}>
+                  <p>{comida.nome}</p>
+                  <p>{comida.descricao}</p>
+                  <p className={styles.preco}>R$ {comida.preco}</p>
+                </div>
                 <input
                   type="number"
                   defaultValue={0}
@@ -155,15 +159,16 @@ function Pedidos() {
             )}
           </div>
 
-          <div classname={styles.bebidasCardapio}>
-            <label>Bebidas:</label>
+          <div className={styles.bebidasCardapio}>
+            <label className={styles.labelItems}>Bebidas:</label>
             {bebidas.map(bebida =>
             (
               <div key={bebida.id} className={styles.modalNovoPedido}>
-                <img src={bebida.imagem} alt="" />
-                <p>{bebida.tipo}</p>
-                <p>{bebida.nome}</p>
-                <p>{bebida.preco}</p>
+                <div className={styles.fields}>
+                  <p>{bebida.nome}</p>
+                  <p>{bebida.tipo}</p>
+                  <p className={styles.preco}> R${bebida.preco}</p>
+                </div>
                 <input
                   type="number"
                   defaultValue={0}

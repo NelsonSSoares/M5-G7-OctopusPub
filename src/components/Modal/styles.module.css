@@ -35,8 +35,8 @@ p {
     margin-bottom: 20px;
 }
 .btn {
-    background: #428bca;
-    border: #357ebd solid 1px;
+    background: #42ada1;
+    border: #42ada1 solid 1px;
     border-radius: 3px;
     color: #fff;
     display: inline-block;
@@ -47,9 +47,10 @@ p {
     min-width: 60px;
     position: relative;
     transition: color .1s ease;
+    font-weight: bold;
 }
 .btn:hover {
-    background: #357ebd;
+    background: #3c9e93;
 }
 .btn.btnBig {
     font-size: 18px;
