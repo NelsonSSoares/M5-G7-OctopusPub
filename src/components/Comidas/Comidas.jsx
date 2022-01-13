@@ -4,31 +4,49 @@ import Footer from '../Footer/Footer';
 import styles from './styles.module.css';
 import classNames from 'classnames';
 import logo from "../../assets/logo.png"
+import axios from 'axios';
 
 
-function Comidas(props) {
+function Comidas() {
 
-  const [cod, setCod] = useState('');
+/*   const [id, setId] = useState('');
   const [nome, setNome] = useState('');
+
   const [descricao, setDescricao] = useState('');
-  const [preco, setPreco] = useState(0);
+  const [preco, setPreco] = useState(0); */
+
+
+  const [arrComidas, setArrComidas] = useState({id:'', nome:'', descricao:'', preco:''})
+
+  const setComida = (value) =>{
+    setArrComidas({...arrComidas, ...value})
+  }
 
   async function salvarComida(){
-
+    await axios.post(`https://octopus-pub.herokuapp.com/comidas`, arrComidas)
+    .then((response) =>{ console.log(response.data)});
   }
 
-  async function carregarComidas(){
-
+  async function carregarComida(params){
+    const response = await axios.get(`https://octopus-pub.herokuapp.com/comidas/${params.id}`)
+    /* .then((response) => {console.log(response)}); */
+    console.log(response);
+  }
+  async function alterarComida(params){
+    setComida({id: params.id, nome: params.nome, descricao: params.descricao, preco: params.preco});
+    atualizarComidas(arrComidas)
+  }
+  async function atualizarComidas(arrComidas){
+    
+    await axios.put(`https://octopus-pub.herokuapp.com/comidas/${arrComidas.id}`, arrComidas)
+    .then((response => {console.log(response.data)}));
   }
 
-  async function atualizarComidas(){
-
+  async function dropComida(params){
+    await axios.delete(`https://octopus-pub.herokuapp.com/comidas/${params.id}`)
+    .then((response => {console.log(response)}))
   }
 
-  async function dropComida(){
-
-  }
-  
 
 
   return (
@@ -49,42 +67,42 @@ function Comidas(props) {
           </div>
             <form onSubmit={(event) => {
               event.preventDefault();
-              console.log({ cod, nome, descricao, preco })
+              console.log(arrComidas)
             }}
             >
 
               <div className={classNames(styles.inputGroup, styles.divCod)}>
-                <input value={cod} name="cod" className={styles.inputText} type="text" placeholder='código'
+                <input value={arrComidas.id} name="id" className={styles.inputText} type="text" placeholder='código'
                   onChange={(event) => {
-                    setCod(event.target.value)
+                    setComida({id: event.target.value})
                   }}
                 />
                 <div className={classNames(styles.inputGroup, styles.divBtnConsultar)}>
-                  <button type='submit' className={styles.btnConsulta}><strong>Consultar</strong></button>
+                  <button type='submit' className={styles.btnConsulta} onClick={() => {carregarComida(arrComidas.id)}}><strong>Consultar</strong></button>
                 </div>
               </div>
 
           <div className={classNames(styles.inputGroup, styles.divNome)}>
-            <input value={nome} name="nome" className={styles.inputText} type="text" placeholder='nome'
+            <input value={arrComidas.nome} name="nome" className={styles.inputText} type="text" placeholder='nome'
               onChange={(event) => {
-                setNome(event.target.value)
+                setComida({nome: event.target.value})
               }}
             />
           </div>
 
           <div className={classNames(styles.inputGroup, styles.divDescricao)}>
 
-            <input value={descricao} name="descricao" className={styles.inputText} type="text" placeholder='descrição'
+            <input value={arrComidas.descricao} name="descricao" className={styles.inputText} type="text" placeholder='descrição'
               onChange={(event) => {
-                setDescricao(event.target.value)
+                setComida({descricao: event.target.value})
               }}
             />
           </div>
 
           <div className={classNames(styles.inputGroup, styles.divPreco)}>
-            <input value={preco} name="preco" className={styles.inputText} type="text" placeholder='0,00'
+            <input value={arrComidas.preco} name="preco" className={styles.inputText} type="text" placeholder='0,00'
               onChange={(event) => {
-                setPreco(event.target.value)
+                setComida({preco: event.target.value})
               }}
             />
           </div>
@@ -92,15 +110,15 @@ function Comidas(props) {
           <div className={styles.buttons}>
 
             <div className={classNames(styles.inputGroup, styles.divBtnCadastrar)}>
-              <button type='submit' className={styles.btnCadastrar}><strong>Cadastrar</strong></button>
+              <button type='submit' className={styles.btnCadastrar} onClick={() => salvarComida()}><strong>Cadastrar</strong></button>
             </div>
 
             <div className={classNames(styles.inputGroup, styles.divBtnAtualizar)}>
-              <button type='submit' className={styles.btnAtualizar}><strong>Atualizar</strong></button>
+              <button type='submit' className={styles.btnAtualizar} onClick={() => alterarComida({id: arrComidas.id, nome: arrComidas.nome, descricao: arrComidas.descricao, preco: arrComidas.preco})}><strong>Atualizar</strong></button>
             </div>
 
             <div className={classNames(styles.inputGroup, styles.divBtnDeletar)}>
-              <button type='submit' className={styles.btnDeletar}><strong>Deletar</strong></button>
+              <button type='submit' className={styles.btnDeletar} onClick={()=> dropComida({id: arrComidas.id})} ><strong>Deletar</strong></button>
             </div>
           </div>
 
@@ -112,12 +130,12 @@ function Comidas(props) {
     </section >
   );
 }
-
+/* 
 function validaComNome(nome) {
 
   if (nome.length < 25 && nome.length > 0) {
     return true;
   }
 }
-
+ */
 export default Comidas;
