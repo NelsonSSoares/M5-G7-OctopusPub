@@ -6,13 +6,29 @@ import classNames from 'classnames';
 import logo from "../../assets/logo.png"
 
 
-function Comidas() {
+function Comidas(props) {
 
   const [cod, setCod] = useState('');
   const [nome, setNome] = useState('');
   const [descricao, setDescricao] = useState('');
   const [preco, setPreco] = useState(0);
 
+  async function salvarComida(){
+
+  }
+
+  async function carregarComidas(){
+
+  }
+
+  async function atualizarComidas(){
+
+  }
+
+  async function dropComida(){
+
+  }
+  
 
 
   return (
