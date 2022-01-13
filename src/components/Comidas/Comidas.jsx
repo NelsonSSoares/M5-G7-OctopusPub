@@ -27,8 +27,10 @@ function Comidas() {
     .then((response) =>{ console.log(response.data)});
   }
 
-  async function carregarComida(params){
-    const response = await axios.get(`https://octopus-pub.herokuapp.com/comidas/${params.id}`)
+  async function carregarComida(arrComidas){
+    console.log(arrComidas.id)
+    parseInt(arrComidas.id)
+    const response = await axios.get(`https://octopus-pub.herokuapp.com/comidas/${arrComidas.id}`)
     /* .then((response) => {console.log(response)}); */
     console.log(response);
   }
@@ -37,12 +39,13 @@ function Comidas() {
     atualizarComidas(arrComidas)
   }
   async function atualizarComidas(arrComidas){
-    
+    console.log(arrComidas.id)
     await axios.put(`https://octopus-pub.herokuapp.com/comidas/${arrComidas.id}`, arrComidas)
     .then((response => {console.log(response.data)}));
   }
 
   async function dropComida(params){
+    console.log(params.id)
     await axios.delete(`https://octopus-pub.herokuapp.com/comidas/${params.id}`)
     .then((response => {console.log(response)}))
   }
@@ -78,7 +81,7 @@ function Comidas() {
                   }}
                 />
                 <div className={classNames(styles.inputGroup, styles.divBtnConsultar)}>
-                  <button type='submit' className={styles.btnConsulta} onClick={() => {carregarComida(arrComidas.id)}}><strong>Consultar</strong></button>
+                  <button type='submit' className={styles.btnConsulta} onClick={() => {carregarComida({id: arrComidas.id})}}><strong>Consultar</strong></button>
                 </div>
               </div>
 
