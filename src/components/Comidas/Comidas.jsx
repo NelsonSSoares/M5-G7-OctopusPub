@@ -27,6 +27,8 @@ function Comidas() {
     .then((response) => {
       alert(response.data)
       setComida({id:'', nome:'', descricao:'', preco:''})
+    }).catch((error) =>{
+      alert(`Não foi possivel registar nova comida, tente novamente.. ERROR:${error}`)
     });
   }
 
@@ -50,7 +52,9 @@ function Comidas() {
     await axios.put(`https://octopus-pub.herokuapp.com/comidas/${arrComidas.id}`, arrComidas)
     .then((response => {
       alert('Comida atualizada com sucesso.')
-    }));
+    })).catch((error) =>{
+      alert(`Não foi possivel atualizar comida registrada, tente novamente.. ${error}`)
+    });
   }
 
   async function dropComida(params){
@@ -58,7 +62,9 @@ function Comidas() {
     .then((response => {
       alert('Comida excluída com sucesso')
       setComida({id:'', nome:'', descricao:'', preco:''})
-    }))
+    })).catch((error) =>{
+      alert(`Não foi possivel excluir comida, verifique codigo e tente novamente.. ${error}`)
+    })
   }
 
   return (
