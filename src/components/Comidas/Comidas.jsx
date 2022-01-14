@@ -24,30 +24,42 @@ function Comidas() {
 
   async function salvarComida(){
     await axios.post(`https://octopus-pub.herokuapp.com/comidas`, arrComidas)
-    .then((response) =>{ console.log(response.data)});
+    .then((response) => {
+      alert(response.data)
+      setComida({id:'', nome:'', descricao:'', preco:''})
+    });
   }
 
-  async function carregarComida(params){
-    const response = await axios.get(`https://octopus-pub.herokuapp.com/comidas/${params.id}`)
-    /* .then((response) => {console.log(response)}); */
-    console.log(response);
+  async function carregarComida(id){
+    const response = await axios.get(`https://octopus-pub.herokuapp.com/comidas/${id}`)
+    if (response.data === '') {
+      alert('Comida não encontrada')
+      setComida({id:'', nome:'', descricao:'', preco:''})
+      return
+    }
+
+    setComida(response.data)
   }
+
   async function alterarComida(params){
     setComida({id: params.id, nome: params.nome, descricao: params.descricao, preco: params.preco});
     atualizarComidas(arrComidas)
   }
+
   async function atualizarComidas(arrComidas){
-    
     await axios.put(`https://octopus-pub.herokuapp.com/comidas/${arrComidas.id}`, arrComidas)
-    .then((response => {console.log(response.data)}));
+    .then((response => {
+      alert('Comida atualizada com sucesso.')
+    }));
   }
 
   async function dropComida(params){
     await axios.delete(`https://octopus-pub.herokuapp.com/comidas/${params.id}`)
-    .then((response => {console.log(response)}))
+    .then((response => {
+      alert('Comida excluída com sucesso')
+      setComida({id:'', nome:'', descricao:'', preco:''})
+    }))
   }
-
-
 
   return (
     <section className={styles.formulario}>
@@ -130,7 +142,7 @@ function Comidas() {
     </section >
   );
 }
-/* 
+/*
 function validaComNome(nome) {
 
   if (nome.length < 25 && nome.length > 0) {

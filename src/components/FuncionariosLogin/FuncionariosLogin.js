@@ -7,9 +7,13 @@ import styles from './styles.module.css'
 import logo from "../../assets/logo.png"
 import iconeFuncionario from "../../assets/iconeFuncionario.png"
 
+import { useNavigate } from "react-router-dom";
+
 function FuncionariosLogin(props) {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+
+  const navigate = useNavigate();
 
   async function login() {
     const data = {
@@ -17,9 +21,15 @@ function FuncionariosLogin(props) {
       senha: senha
     }
 
-    const response = await axios.post('https://octopus-pub.herokuapp.com/funcionarios/login', data)
-    console.log(response)
-    console.log(props)
+    try {
+      const response = await axios.post('https://octopus-pub.herokuapp.com/funcionarios/login', data)
+      alert(response.data.msg)
+      navigate('/pedidos')
+    } catch (error) {
+      console.log(error)
+      alert('Usuário ou senha incorretos')
+    }
+
   }
 
   return (
