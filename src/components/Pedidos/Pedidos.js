@@ -86,7 +86,7 @@ function Pedidos() {
     <>
       <Header />
       <div className={styles.container}>
-          <div>
+          <div className={styles.imgLogo}>
             <img src={logo}/>
           </div>
           <div className={styles.card}>
