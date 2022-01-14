@@ -24,33 +24,48 @@ function Comidas() {
 
   async function salvarComida(){
     await axios.post(`https://octopus-pub.herokuapp.com/comidas`, arrComidas)
-    .then((response) =>{ console.log(response.data)});
+    .then((response) => {
+      alert(response.data)
+      setComida({id:'', nome:'', descricao:'', preco:''})
+    }).catch((error) =>{
+      alert(`Não foi possivel registar nova comida, tente novamente.. ERROR:${error}`)
+    });
   }
 
-  async function carregarComida(arrComidas){
-    console.log(arrComidas.id)
-    parseInt(arrComidas.id)
-    const response = await axios.get(`https://octopus-pub.herokuapp.com/comidas/${arrComidas.id}`)
-    /* .then((response) => {console.log(response)}); */
-    console.log(response);
+  async function carregarComida(id){
+    const response = await axios.get(`https://octopus-pub.herokuapp.com/comidas/${id}`)
+    if (response.data === '') {
+      alert('Comida não encontrada')
+      setComida({id:'', nome:'', descricao:'', preco:''})
+      return
+    }
+
+    setComida(response.data)
   }
+
   async function alterarComida(params){
     setComida({id: params.id, nome: params.nome, descricao: params.descricao, preco: params.preco});
     atualizarComidas(arrComidas)
   }
+
   async function atualizarComidas(arrComidas){
-    console.log(arrComidas.id)
     await axios.put(`https://octopus-pub.herokuapp.com/comidas/${arrComidas.id}`, arrComidas)
-    .then((response => {console.log(response.data)}));
+    .then((response => {
+      alert('Comida atualizada com sucesso.')
+    })).catch((error) =>{
+      alert(`Não foi possivel atualizar comida registrada, tente novamente.. ${error}`)
+    });
   }
 
   async function dropComida(params){
-    console.log(params.id)
     await axios.delete(`https://octopus-pub.herokuapp.com/comidas/${params.id}`)
-    .then((response => {console.log(response)}))
+    .then((response => {
+      alert('Comida excluída com sucesso')
+      setComida({id:'', nome:'', descricao:'', preco:''})
+    })).catch((error) =>{
+      alert(`Não foi possivel excluir comida, verifique codigo e tente novamente.. ${error}`)
+    })
   }
-
-
 
   return (
     <section className={styles.formulario}>
@@ -81,7 +96,7 @@ function Comidas() {
                   }}
                 />
                 <div className={classNames(styles.inputGroup, styles.divBtnConsultar)}>
-                  <button type='submit' className={styles.btnConsulta} onClick={() => {carregarComida({id: arrComidas.id})}}><strong>Consultar</strong></button>
+                  <button type='submit' className={styles.btnConsulta} onClick={() => {carregarComida(arrComidas.id)}}><strong>Consultar</strong></button>
                 </div>
               </div>
 
@@ -133,7 +148,7 @@ function Comidas() {
     </section >
   );
 }
-/* 
+/*
 function validaComNome(nome) {
 
   if (nome.length < 25 && nome.length > 0) {
