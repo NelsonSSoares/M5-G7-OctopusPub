@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Source+Serif+Pro:ital,wght@0,300;1,300&display=swap');
+
 .table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -5,13 +7,13 @@
 }
 
 .td, .th {
-    border: 1px solid #dddddd;
+    border: 1px solid #000;
     text-align: left;
     padding: 8px;
 }
 
 .tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #000;
 }
 
 .wrap {
@@ -33,8 +35,8 @@ p {
     margin-bottom: 20px;
 }
 .btn {
-    background: #428bca;
-    border: #357ebd solid 1px;
+    background: #42ada1;
+    border: #42ada1 solid 1px;
     border-radius: 3px;
     color: #fff;
     display: inline-block;
@@ -45,9 +47,10 @@ p {
     min-width: 60px;
     position: relative;
     transition: color .1s ease;
+    font-weight: bold;
 }
 .btn:hover {
-    background: #357ebd;
+    background: #3c9e93;
 }
 .btn.btnBig {
     font-size: 18px;
@@ -80,7 +83,9 @@ p {
     z-index: 10;
 }
 .modal .modalDialog {
-    background: #fefefe;
+    background: #000;
+    font-family: 'Source Serif Pro';
+    color: #fff;
     border: #333333 solid 1px;
     border-radius: 5px;
     position: fixed;
@@ -109,13 +114,12 @@ p {
     padding: 10px 10px;
 }
 .modalHeader {
-    border-bottom: #eeeeee solid 1px;
+    font-weight: bold;
 }
 .modalHeader h2 {
     font-size: 20px;
 }
 .modalFooter {
-    border-top: #eeeeee solid 1px;
     text-align: right;
 }
 

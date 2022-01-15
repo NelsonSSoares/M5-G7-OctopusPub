@@ -1,16 +1,28 @@
 .container{
-    justify-content: center;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: auto;
-    grid-template-areas: "divCod divCod divBtnConsulta divBtnConsulta "
-    " . divNome divDescricao divPreco "
-    ". divBtnCadastrar divBtnAtualizar divBtnDeletar";
+    background: #000;
+    display:flex;
+    justify-content: space-around;
+    padding-bottom: 3%
+}
 
+.card {
+    background: #42ada1;
+    border-radius: 15px;
+    width: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.imgComida {
+    width: 30%;
 }
 /* cod,nome,descricao,preco,img */
 .divCod{
     grid-area: divCod;
+    display: flex;
+    align-items: center
 }
 .divNome{
     grid-area: divNome;
@@ -28,154 +40,114 @@
     grid-area: divBtnCadastrar;
 }
 .divBtnAtualizar{
-   grid-area: divBtnAtualizar; 
+   grid-area: divBtnAtualizar;
 }
 .divBtnDeletar{
     grid-area: divBtnDeletar;
 }
 
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-}
 .formulario{
     height: 94vh;
     background-color: black;
     color: white;
 }
 
-.title{
-    color: green;
+.inputText {
+    width: 100%;
 }
-
 label{
     display: block;
     text-align: start;
 }
-.inputText{
-    
-    height: 25px;
-    border-radius: 7px;
-    border: 5px solid green;
-    color: white;
 
-}
-input{
-    background: none;
-}
-.inputText:focus{
-    border: 5px solid white;
+.buttons {
+    display:flex;
+    margin-top: 15px;
+    justify-content: space-around;
 }
 
-.inputGroup{
-    margin: 10px;
-    
-}
 .btnConsulta{
-    margin-top: 25px;
-    border: 3px solid lightblue;
-    color: lightblue;
-    background: none;
-    width: 100px;
-    height: 30px;
-    border-radius: 7px;
-    cursor: pointer;
-   
+    font-family: 'Source Serif Pro';
+    font-weight: bold;
+    color: #fff;
+    background: #758b86;;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: none!important;
+    margin: 0px 15px;
 }
+
 .btnConsulta:hover{
-    transition: 1s;
-    transform: scale(1.2);
-    border: 3px solid white ;
-    color: white;
+    cursor: pointer;
+    transform: scale(1.01);
+    background: #758b86!important;
 }
-.btnConsulta:focus{
-    transition: 1s;
-    transform: scale(1.2);
-    border: 3px solid white ;
-    color: white;
-    
-}
+
 
 .btnCadastrar{
-    margin-top: 10px;
-    border: 3px solid green;
-    color: green;
-    background: none;
-    width: 100px;
-    height: 30px;
-    border-radius: 7px;
-    cursor: pointer;
+    font-family: 'Source Serif Pro';
+    font-weight: bold;
+    color: #fff;
+    background: #000;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: none!important;
 }
 
 .btnCadastrar:hover{
-    transition: 1s;
-    transform: scale(1.2);
-    border: 3px solid white ;
-    color: white;
+    cursor: pointer;
+    transform: scale(1.01);
+    background: #000!important;
 }
-.btnCadastrar:focus{
-    transition: 1s;
-    transform: scale(1.2);
-    border: 3px solid white ;
-    color: white;
-    
-}
+
 
 .btnAtualizar{
-    margin-top: 10px;
-    border: 3px solid yellow;
-    color: yellow;
-    background: none;
-    width: 100px;
-    height: 30px;
-    border-radius: 7px;
-    cursor: pointer;
-}
-.btnAtualizar:hover{
-    transition: 1s;
-    transform: scale(1.2);
-    border: 3px solid white ;
-    color: white;
-}
-.btnAtualizar:focus{
-    transition: 1s;
-    transform: scale(1.2);
-    border: 3px solid white ;
-    color: white;
-    
+    font-family: 'Source Serif Pro';
+    font-weight: bold;
+    color: #fff;
+    background: #ca9c39;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: none!important;
+    margin: 0px 15px;
 }
 
-.btnDeletar{
-    margin-top: 10px;
-    border: 3px solid red;
-    color: red;
-    background: none;
-    width: 100px;
-    height: 30px;
-    border-radius: 7px;
+.btnAtualizar:hover{
     cursor: pointer;
+    transform: scale(1.01);
+    background: #ca9c39!important;
 }
+
+
+.btnDeletar{
+    font-family: 'Source Serif Pro';
+    font-weight: bold;
+    color: #fff;
+    background: #9B0909;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: none!important;
+}
+
 .btnDeletar:hover{
-    transition: 1s;
-    transform: scale(1.2);
-    border: 3px solid white ;
-    color: white;
+    cursor: pointer;
+    transform: scale(1.01);
+    background: #9B0909!important;
 }
-.btnDeletar:focus{
-    transition: 1s;
-    transform: scale(1.2);
-    border: 3px solid white ;
-    color: white;
-    
-}
+
 
  @media (max-width: 400px) {
     .container{
         justify-content: center;
-        display: grid;
-        grid-template-columns: auto auto auto auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+       /* grid-template-columns: auto auto auto auto;
         grid-template-rows: auto;
         grid-template-areas: "divCod divCod divCod divCod"
         "divBtnConsultar divBtnConsultar divBtnConsultar divBtnConsultar"
@@ -184,7 +156,19 @@ input{
         "divPreco divPreco divPreco divPreco"
         "divBtnCadastrar divBtnCadastrar divBtnCadastrar divBtnCadastrar"
         "divBtnAtualizar divBtnAtualizar divBtnAtualizar divBtnAtualizar "
-        "divBtnDeletar divBtnDeletar divBtnDeletar divBtnDeletar ";
+        "divBtnDeletar divBtnDeletar divBtnDeletar divBtnDeletar "; */
 
+    }
+    .inputText {
+        width: auto;
+    }
+    .card {
+        width: 90%;
+    }
+    .divCod {
+        flex-direction: column;
+    }
+    .buttons {
+        padding-bottom: 6%;
     }
  }

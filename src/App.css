@@ -1,4 +1,4 @@
-html, body, #root, .App, main, main > div {
+/*html, body, #root, .App, main, main > div {
   width: 100%;
   height: 100%
 }
@@ -6,11 +6,11 @@ main > div {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
+} */
 
 .App {
   text-align: center;
-  overflow-x: hidden;
+   overflow-x: hidden; 
 }
 
 .App-logo {
@@ -39,7 +39,6 @@ main > div {
 .App-link {
   color: #61dafb;
 }
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -47,4 +46,21 @@ main > div {
   to {
     transform: rotate(360deg);
   }
+}
+@media(max-width: 767px) {
+  .imgLogo {
+    width: 100%;
+  }
+    .imgLogo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+  } 
+.container {
+  flex-direction: column;
+}
+.card {
+  width: 100%;
+  height: 50%;
+}
 }
