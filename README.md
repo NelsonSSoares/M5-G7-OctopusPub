@@ -16,6 +16,13 @@ Use o comando
 
 ### `npm start`
 
+Para mais informações, consulte os seguintes link:
+
+* [Documentação da API onde constam os endpoints utilizados](https://documenter.getpostman.com/view/18554886/UVJhCZwa)
+
+* [Apresentação](https://www.canva.com/design/DAE1MjxtdjQ/jbxmID7XceXhzxPPfTBZtw/view?utm_content=DAE1MjxtdjQ&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
+
+
 ---
 
 ## Sobre o Projeto :computer:
