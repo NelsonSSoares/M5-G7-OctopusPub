@@ -79,7 +79,6 @@ function Comidas() {
           </div>
             <form onSubmit={(event) => {
               event.preventDefault();
-              console.log(arrComidas)
             }}
             >
 

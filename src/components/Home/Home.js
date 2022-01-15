@@ -20,7 +20,7 @@ function Home() {
         </div>
         <div className={styles.logo}>
           <img className={styles.logo} src={Logo} alt=''></img>
-        </div> 
+        </div>
         <div className={styles.photos}>
           <img className={styles.img} src={FoodHamb} alt=""></img>
           <img className={styles.img} src={Drink} alt=""></img>

@@ -41,7 +41,6 @@ function Pedidos() {
 
   async function excluirPedido(id) {
     const response = await axios.delete(`https://octopus-pub.herokuapp.com/comandas/${id}`);
-    console.log(response)
     carregarComandas()
   }
 
@@ -190,3 +189,4 @@ function Pedidos() {
 }
 
 export default Pedidos;
+
