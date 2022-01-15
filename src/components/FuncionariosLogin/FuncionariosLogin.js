@@ -26,7 +26,6 @@ function FuncionariosLogin(props) {
       alert(response.data.msg)
       navigate('/pedidos')
     } catch (error) {
-      console.log(error)
       alert('Usuário ou senha incorretos')
     }
 
