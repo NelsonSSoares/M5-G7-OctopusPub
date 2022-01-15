@@ -55,4 +55,7 @@ body {
   .img {
       width: 50%;
   }
+  .logo {
+      display: none;
+  }
 }
