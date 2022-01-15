@@ -144,8 +144,10 @@ label{
  @media (max-width: 400px) {
     .container{
         justify-content: center;
-        display: grid;
-        grid-template-columns: auto auto auto auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+       /* grid-template-columns: auto auto auto auto;
         grid-template-rows: auto;
         grid-template-areas: "divCod divCod divCod divCod"
         "divBtnConsultar divBtnConsultar divBtnConsultar divBtnConsultar"
@@ -154,7 +156,19 @@ label{
         "divPreco divPreco divPreco divPreco"
         "divBtnCadastrar divBtnCadastrar divBtnCadastrar divBtnCadastrar"
         "divBtnAtualizar divBtnAtualizar divBtnAtualizar divBtnAtualizar "
-        "divBtnDeletar divBtnDeletar divBtnDeletar divBtnDeletar ";
+        "divBtnDeletar divBtnDeletar divBtnDeletar divBtnDeletar "; */
 
+    }
+    .inputText {
+        width: auto;
+    }
+    .card {
+        width: 90%;
+    }
+    .divCod {
+        flex-direction: column;
+    }
+    .buttons {
+        padding-bottom: 6%;
     }
  }

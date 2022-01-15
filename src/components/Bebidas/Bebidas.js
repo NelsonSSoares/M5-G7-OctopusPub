@@ -61,8 +61,8 @@ function Bebidas() {
     <>
       <Header />
       <div className={styles.container}>
-      <div>
-          <img src={logo} />
+      <div className="imgLogo">
+          <img src={logo} alt="logo" />
       </div>
       <div className={styles.card}>
         <div>
